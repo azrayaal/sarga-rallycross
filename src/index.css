@@ -1,0 +1,283 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   SARGA Rally — Design System
+   Dark-luxury motorsport. Molten accent. Editorial typography.
+   ============================================================ */
+
+@theme {
+  /* Core surfaces — warm near-black, layered graphite */
+  --color-ink: #08080a;
+  --color-void: #0b0b0e;
+  --color-carbon: #111116;
+  --color-graphite: #17171d;
+  --color-slate: #1e1e26;
+  --color-steel: #2a2a34;
+
+  /* Text */
+  --color-bone: #f4f1ea;
+  --color-ash: #a5a3a0;
+  --color-smoke: #6f6d6b;
+
+  /* ---- SARGA Pantone palette ---- */
+  --color-crimson: #da291c;   /* Apex Crimson — 485 C (primary) */
+  --color-ignition: #ff6a13;  /* Ignition Orange — 1505 C */
+  --color-yellow: #ffcd00;    /* Electric Yellow — 116 C */
+  --color-teal: #00a9ce;      /* Slipstream Teal — 3115 C */
+  --color-blue: #0033a0;      /* Draftline Blue — 286 C */
+
+  /* Signature accent — Apex Crimson (drives the brand) */
+  --color-molten: #da291c;
+  --color-molten-hot: #f23325;
+  --color-ember: #a11912;
+
+  /* Secondary accents (aliases kept for existing utilities) */
+  --color-gold: #ffcd00;
+  --color-acid: #00a9ce;
+
+  /* Accent-tinted dark surfaces for per-section variety */
+  --color-oxblood: #120a0b;
+  --color-abyss: #080a12;
+  --color-teal-night: #06110f;
+
+  /* Fonts */
+  --font-display: 'Archivo', 'Archivo Black', system-ui, sans-serif;
+  --font-sans: 'Sora', system-ui, sans-serif;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Breakpoint additions */
+  --breakpoint-3xl: 112rem;
+}
+
+@layer base {
+  * {
+    border-color: color-mix(in srgb, var(--color-bone) 8%, transparent);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+
+  ::selection {
+    background: var(--color-molten);
+    color: #fff;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-ink); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-steel);
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-molten); }
+}
+
+@layer utilities {
+  /* Editorial oversized display headline */
+  .text-display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 0.86;
+    letter-spacing: -0.03em;
+  }
+
+  /* Uppercase eyebrow / kicker */
+  .kicker {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.7rem;
+  }
+
+  /* Outlined "ghost" display text */
+  .text-outline {
+    -webkit-text-stroke: 1.5px color-mix(in srgb, var(--color-bone) 22%, transparent);
+    color: transparent;
+  }
+
+  .text-outline-molten {
+    -webkit-text-stroke: 1.5px var(--color-molten);
+    color: transparent;
+  }
+
+  /* Signature Apex Crimson gradient text (red only — no orange) */
+  .text-gradient-molten {
+    background: linear-gradient(112deg, #f23325 0%, var(--color-crimson) 48%, var(--color-ember) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-electric {
+    background: linear-gradient(100deg, var(--color-yellow) 0%, var(--color-ignition) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-cool {
+    background: linear-gradient(100deg, var(--color-teal) 0%, var(--color-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Fine top hairline */
+  .rule {
+    border-top: 1px solid color-mix(in srgb, var(--color-bone) 12%, transparent);
+  }
+
+  /* Diagonal racing hazard stripes */
+  .hazard {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--color-molten) 0,
+      var(--color-molten) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+
+  .hazard-yellow {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--color-yellow) 0,
+      var(--color-yellow) 12px,
+      #0a0a0b 12px,
+      #0a0a0b 24px
+    );
+  }
+
+  /* ---- Decorative section motifs ---- */
+  .motif-grid {
+    background-image:
+      linear-gradient(to right, rgba(244, 241, 234, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(244, 241, 234, 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .motif-grid-sm {
+    background-image:
+      linear-gradient(to right, rgba(244, 241, 234, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(244, 241, 234, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .motif-dots {
+    background-image: radial-gradient(rgba(244, 241, 234, 0.07) 1px, transparent 1.6px);
+    background-size: 26px 26px;
+  }
+
+  .motif-diagonal {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(244, 241, 234, 0.035) 0,
+      rgba(244, 241, 234, 0.035) 1px,
+      transparent 1px,
+      transparent 15px
+    );
+  }
+
+  .motif-vlines {
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(244, 241, 234, 0.05) 0,
+      rgba(244, 241, 234, 0.05) 1px,
+      transparent 1px,
+      transparent 88px
+    );
+  }
+
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  }
+
+  .mask-fade-r {
+    -webkit-mask-image: linear-gradient(to right, #000 78%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 78%, transparent 100%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .clip-angle {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%);
+  }
+
+  .perspective {
+    perspective: 1200px;
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.animate-marquee-slow {
+  animation: marquee 70s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-molten) 55%, transparent); }
+  70% { box-shadow: 0 0 0 14px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.pulse-ring { animation: pulse-ring 2.4s infinite; }
+
+/* Swiper overrides */
+.swiper-pagination-bullet {
+  background: var(--color-smoke) !important;
+  opacity: 1 !important;
+  border-radius: 0 !important;
+  width: 22px !important;
+  height: 3px !important;
+  transition: all 0.3s ease;
+}
+.swiper-pagination-bullet-active {
+  background: var(--color-molten) !important;
+  width: 40px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-marquee-slow, .pulse-ring { animation: none; }
+  html { scroll-behavior: auto; }
+}
