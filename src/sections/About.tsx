@@ -21,30 +21,31 @@ function EcosystemStory() {
       <div className="flex flex-col justify-center">
         <SectionHeader
           index="01"
-          kicker="What is SARGA Rally"
+          kicker="Who we are"
           title={
             <>
-              Not a race.
+              We are
               <br />
-              <span className="text-outline-molten">A destination.</span>
+              <span className="text-outline-molten">SARGA Rallycross.</span>
             </>
           }
         />
         <div className="mt-8 flex flex-col gap-5 text-base leading-relaxed text-ash md:text-lg">
           <Reveal delay={0.05}>
             <p>
-              SARGA Rally began as a single gravel stage cut through the Sentul
-              highlands. A decade on it has grown into a full motorsport
-              ecosystem — a world championship, a living paddock town, and a
-              four-day festival where the sport meets the people who love it.
+              SARGA Rallycross is an Indonesian motorsport organisation and
+              community built around one belief — that rallycross should be for
+              everyone. We bring together drivers, teams, engineers and fans
+              under a single banner, promoting and running the sport from
+              grassroots up to the national stage.
             </p>
           </Reveal>
           <Reveal delay={0.12}>
             <p className="text-bone">
-              Our vision is simple: make rally the most immersive event in
-              motorsport. Not watched from a distance, but lived — from the
-              service park at dawn to the floodlit power stage that crowns a
-              champion.
+              More than a promoter, we are the people who live this sport: a
+              home for the next generation of Indonesian talent, a platform that
+              turns raw passion into professional racing, and a movement putting
+              rallycross firmly on the map.
             </p>
           </Reveal>
         </div>
@@ -57,7 +58,7 @@ function EcosystemStory() {
             <span className="flex h-11 w-11 items-center justify-center border border-bone/20 transition-colors group-hover:border-molten group-hover:bg-molten">
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
             </span>
-            Inside the ecosystem
+            What we stand for
           </a>
         </Reveal>
       </div>
@@ -75,14 +76,14 @@ function EcosystemStory() {
             <span className="flex h-14 w-14 items-center justify-center rounded-full border border-bone/30 bg-ink/40 backdrop-blur-md transition-all group-hover:border-molten group-hover:bg-molten">
               <Play className="h-5 w-5 fill-bone text-bone transition-colors group-hover:fill-white" />
             </span>
-            <span className="kicker text-bone">Watch the film</span>
+            <span className="kicker text-bone">Watch our story</span>
           </button>
 
           {/* Corner caption */}
           <div className="absolute bottom-6 left-6 right-6">
             <span className="kicker text-molten">Est. 2016</span>
             <p className="mt-2 font-display text-2xl font-extrabold text-bone">
-              Ten years. One obsession.
+              By racers, for racers.
             </p>
           </div>
         </div>
